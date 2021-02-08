@@ -9,7 +9,9 @@ namespace TreeVariants
     /// <typeparam name="T"></typeparam>
     public class TreeNode<T>
     {
+        // Data to be stored
         public T Data { get; set; }
+
         public TreeNode<T> Parent { get; set; }
         public List<TreeNode<T>> Children { get; set; }
         public int GetHeight()
@@ -23,7 +25,5 @@ namespace TreeVariants
             }
             return height;
         }
-
-
     }
 }
