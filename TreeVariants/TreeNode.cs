@@ -3,27 +3,37 @@ using System.Collections.Generic;
 
 namespace TreeVariants
 {
-    /// <summary>
-    /// Generic class to specify the type of data to be stored in a node.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class TreeNode<T>
+    public class TreeNode<T> : Node<T>
     {
-        // Data to be stored
-        public T Data { get; set; }
+        private TreeNode<T> _parent;
 
-        public TreeNode<T> Parent { get; set; }
-        public List<TreeNode<T>> Children { get; set; }
-        public int GetHeight()
+        public TreeNode()
         {
-            int height = 1;
-            TreeNode<T> current = this;
-            while(current.Parent != null)
+
+        }
+
+        public TreeNode(T item)
+        {
+            _item = item;
+        }
+
+        public TreeNode(T item, TreeNode<T> parent)
+        {
+            _parent = parent;
+            _item = item;
+        }
+
+        public TreeNode(TreeNode<T> parent)
+        {
+            _parent = parent;
+        }
+
+        public TreeNode<T> Parent
+        {
+            get
             {
-                height++;
-                current = current.Parent;
+                return _parent;
             }
-            return height;
         }
     }
 }
