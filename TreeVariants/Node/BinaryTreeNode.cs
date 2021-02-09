@@ -34,7 +34,7 @@ namespace TreeVariants
                 _rightChild = new BinaryTreeNode<T>(item);
             }
         }
-
+        // Gets the left child node
         public BinaryTreeNode<T> LeftChild
         {
             get
@@ -43,6 +43,7 @@ namespace TreeVariants
             }
         }
 
+        // Gets the right child node
         public BinaryTreeNode<T> RightChild
         {
             get

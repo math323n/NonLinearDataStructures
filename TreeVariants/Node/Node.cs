@@ -22,5 +22,9 @@
                 return _item;
             }
         }
+        public override string ToString()
+        {
+            return Item.ToString();
+        }
     }
 }

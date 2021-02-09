@@ -29,6 +29,7 @@ namespace TreeVariants
             }
         }
 
+        // Code to count number of elements in the structure
         public int GetCount(BinaryTreeNode<T> node, int count)
         {
             if(node.LeftChild != null && node.RightChild != null)
@@ -56,27 +57,36 @@ namespace TreeVariants
             parent.AddRightChild(rightChildItem);
         }
 
+        // Method of knowing the total height from Root to lowest Node
         public int GetHeight(BinaryTreeNode<T> root)
         {
+            // If root = null return 0
             if(root == null)
             {
                 return 0;
             }
             else
             {
+                // Set height of left TreeNode to GetHeight
                 int leftHeight = GetHeight(root.LeftChild) + 1;
+
+                // Set height of right TreeNode to GetHeight
                 int rightHeight = GetHeight(root.RightChild) + 1;
+
+                // Return height of lowest TreeNode + 1
                 if(leftHeight > rightHeight)
                 {
                     return leftHeight;
                 }
                 else
                 {
+                    // Else return the right node
                     return rightHeight;
                 }
             }
         }
 
+        // Function to construct string from binary tree level
         public string ToStringLevel(int level, BinaryTreeNode<T> root)
         {
             if(root == null)
@@ -85,17 +95,51 @@ namespace TreeVariants
             }
             else
             {
-                string left = "";
-                string right = "";
+                BinaryTreeNode<T> left = root.LeftChild;
+                BinaryTreeNode<T> right = root.RightChild;
                 for(int i = 0; i < level; i++)
                 {
-                    left = ToStringLevel(level, root.LeftChild);
-                    right = ToStringLevel(level, root.RightChild);
+                    left = FindChildren(left);
+                    right = FindChildren(right);
                 }
+
                 return $"level {level}:  Left: {left}, right: {right} \n";
             }
         }
 
+        // Method of findind children nodes
+        public BinaryTreeNode<T> FindChildren(BinaryTreeNode<T> root)
+        {
+            if(root != null)
+            {
+                if(root.LeftChild != null && root.RightChild != null)
+                {
+                    FindChildren(root.LeftChild);
+                    FindChildren(root.RightChild);
+                }
+
+                if(root.LeftChild != null)
+                {
+                    return root.LeftChild;
+                }
+
+                if(root.RightChild != null)
+                {
+                    return root.RightChild;
+                }
+
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+        
+        // Function to print string from binary tree
         public string ToStringLevelOrder()
         {
             int length = GetHeight(Root);
@@ -106,5 +150,55 @@ namespace TreeVariants
             }
             return tree;
         }
+
+        public string PostOrder(BinaryTreeNode<T> node)
+        {
+            string toReturn = "";
+            if(node != null)
+            {
+                toReturn += PostOrder(node.LeftChild);
+                toReturn += PostOrder(node.RightChild);
+                toReturn += node + " ";
+            }
+
+            return toReturn;
+        }
+
+        public string InOrder(BinaryTreeNode<T> node)
+        {
+            string toReturn = "";
+            if(node.LeftChild != null)
+            {
+                toReturn += InOrder(node.LeftChild);
+            }
+
+            toReturn += node + " ";
+
+            if(node.RightChild != null)
+            {
+                toReturn += InOrder(node.RightChild);
+            }
+
+            return toReturn;
+        }
+
+        public string PreOrder(BinaryTreeNode<T> node)
+        {
+            string toReturn = "";
+
+            if(node != null)
+            {
+                toReturn += node + " ";
+                toReturn += PreOrder(node.LeftChild);
+                toReturn += PreOrder(node.RightChild);
+            }
+
+            return toReturn;
+        }
+
+
+
+
+
     }
 }
