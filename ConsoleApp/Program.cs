@@ -17,8 +17,6 @@ namespace ConsoleApp
             tree.AddRightChildTo(root.RightChild.RightChild, "fds");
 
             Console.WriteLine(tree.ToStringLevelOrder());
-
-
             
         }
     }
