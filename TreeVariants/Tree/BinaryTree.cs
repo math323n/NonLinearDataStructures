@@ -46,7 +46,7 @@ namespace TreeVariants
             }
             return count;
         }
-
+        
         public void AddLeftChildTo(BinaryTreeNode<T> parent, T leftChildItem)
         {
             parent.AddLeftChild(leftChildItem);
@@ -153,6 +153,7 @@ namespace TreeVariants
 
         public string PostOrder(BinaryTreeNode<T> node)
         {
+            // Traverse left subtree, traverse right subtree, visit the root.
             string toReturn = "";
             if(node != null)
             {
@@ -166,6 +167,7 @@ namespace TreeVariants
 
         public string InOrder(BinaryTreeNode<T> node)
         {
+            // Traverse left subtree, visit the root, traverse right subtree.
             string toReturn = "";
             if(node.LeftChild != null)
             {
@@ -182,10 +184,12 @@ namespace TreeVariants
             return toReturn;
         }
 
+
         public string PreOrder(BinaryTreeNode<T> node)
         {
             string toReturn = "";
 
+            // Visit the root, traverse left subtree, traverse right subtree.
             if(node != null)
             {
                 toReturn += node + " ";
@@ -195,10 +199,5 @@ namespace TreeVariants
 
             return toReturn;
         }
-
-
-
-
-
     }
 }
