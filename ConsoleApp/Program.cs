@@ -17,7 +17,17 @@ namespace ConsoleApp
             tree.AddRightChildTo(root.RightChild.RightChild, "fds");
 
             Console.WriteLine(tree.ToStringLevelOrder());
-            
+
+            // Traverse left subtree, traverse right subtree, visit the root.
+            Console.WriteLine(tree.PostOrder(root));
+
+            // Visit the root, traverse left subtree, traverse right subtree.
+
+            Console.WriteLine(tree.PreOrder(root));
+
+            // Traverse left subtree, visit the root, traverse right subtree.
+            Console.WriteLine(tree.InOrder(root));
+
         }
     }
 }
