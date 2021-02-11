@@ -16,5 +16,7 @@ namespace TreeVariants.Tree
         }
 
         public void Insert(int item);
+
+     
     }
 }

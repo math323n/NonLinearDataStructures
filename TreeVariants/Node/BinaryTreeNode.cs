@@ -4,6 +4,7 @@ using System.Text;
 
 namespace TreeVariants
 {
+  
     public class BinaryTreeNode<T> : TreeNode<T>
     {
         private BinaryTreeNode<T> _leftChild;

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TreeVariants.Node
 {
+   
     public class BinarySearchTreeNode : TreeNode<int>
     {
+      
         protected BinarySearchTreeNode _leftChild;
         protected BinarySearchTreeNode _rightChild;
 
@@ -73,5 +75,7 @@ namespace TreeVariants.Node
                 return _rightChild;
             }
         }
+
+       
     }
 }

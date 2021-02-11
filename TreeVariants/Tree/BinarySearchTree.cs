@@ -54,6 +54,10 @@ namespace TreeVariants
             }
             return count;
         }
+        public void Print()
+        {
+            Root.Print();
+        }
 
         public virtual void Insert(int item)
         {
@@ -95,5 +99,8 @@ namespace TreeVariants
 
             return toReturn;
         }
+
+       
+
     }
 }
