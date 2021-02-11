@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using TreeVariants;
+using TreeVariants.Node;
 
 namespace ConsoleApp
 {
@@ -30,17 +31,17 @@ namespace ConsoleApp
 
             // Create new Binary Search Tree
             BinarySearchTree searchTree = new();
-            searchTree.Insert(3);
+            searchTree.Insert(2);
             searchTree.Insert(1);
-            searchTree.InsertMany(new List<int> { 4, 7, 9,78,4,4,21 });
+            searchTree.Insert(3);
+            searchTree.InsertMany(new List<int> {4, 45, 98 });
 
             // print out tree in order
             //Console.WriteLine(searchTree.InOrder(searchTree.Root));
-            searchTree.Print();
-
-            
+            // Print a very fancy tree.
+            searchTree.Root.Print();
+    
         }
 
     }
-    
 }
