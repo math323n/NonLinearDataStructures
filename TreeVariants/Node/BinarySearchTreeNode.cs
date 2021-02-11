@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TreeVariants.Node
+﻿namespace TreeVariants.Node
 {
    
     public class BinarySearchTreeNode : TreeNode<int>
@@ -34,7 +28,6 @@ namespace TreeVariants.Node
                     // Set a new Left child node with item as property
                     _leftChild = new BinarySearchTreeNode(item);
                 }
-
                 else
                 {
                     // Insert item into left child
@@ -75,7 +68,5 @@ namespace TreeVariants.Node
                 return _rightChild;
             }
         }
-
-       
     }
 }

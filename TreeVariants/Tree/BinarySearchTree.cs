@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TreeVariants.Node;
 using TreeVariants.Tree;
 
@@ -99,8 +95,5 @@ namespace TreeVariants
 
             return toReturn;
         }
-
-       
-
     }
 }
