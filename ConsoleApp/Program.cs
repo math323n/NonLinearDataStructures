@@ -32,14 +32,12 @@ namespace ConsoleApp
             BinarySearchTree searchTree = new();
             searchTree.Insert(3);
             searchTree.Insert(1);
-            searchTree.InsertMany(new List<int> { 6, 2, 4 });
-            Print(searchTree);
+            searchTree.InsertMany(new List<int> { 3, 7, 9 });
+
+
+            Console.WriteLine(searchTree.InOrder(searchTree.Root));
         }
 
-        public static void Print(BinarySearchTree tree)
-        {
-            Console.WriteLine(tree.InOrder(tree.Root));
-        }
     }
     
 }
