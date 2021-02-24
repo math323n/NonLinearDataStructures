@@ -73,6 +73,13 @@ namespace ConsoleApp
 
 
 
+            
+
+            minHeap.Insert(new BinaryTreeNode<int>(5));
+       
+
+
+
         }
 
     }
