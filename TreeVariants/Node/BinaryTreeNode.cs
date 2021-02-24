@@ -4,11 +4,12 @@ using System.Text;
 
 namespace TreeVariants
 {
-  
-    public class BinaryTreeNode<T> : TreeNode<T>
+
+    public class BinaryTreeNode<T> : TreeNode<T> where T : IComparable<T>
     {
-        private BinaryTreeNode<T> _leftChild;
-        private BinaryTreeNode<T> _rightChild;
+        protected BinaryTreeNode<T> _leftChild;
+        protected BinaryTreeNode<T> _rightChild;
+        protected BinaryTreeNode<T> _parent;
 
         public BinaryTreeNode()
         {
@@ -20,7 +21,13 @@ namespace TreeVariants
             _item = item;
         }
 
-        public void AddLeftChild(T item)
+        public BinaryTreeNode(T item, BinaryTreeNode<T> parent)
+        {
+            _item = item;
+            _parent = parent;
+        }
+
+        public virtual void AddLeftChild(T item)
         {
             if(_leftChild == null)
             {
@@ -28,28 +35,47 @@ namespace TreeVariants
             }
         }
 
-        public void AddRightChild(T item)
+        public virtual void AddRightChild(T item)
         {
             if(_rightChild == null)
             {
                 _rightChild = new BinaryTreeNode<T>(item);
             }
         }
-        // Gets the left child node
-        public BinaryTreeNode<T> LeftChild
+
+        public virtual BinaryTreeNode<T> LeftChild
         {
             get
             {
                 return _leftChild;
             }
+            set
+            {
+                _leftChild = value;
+            }
         }
 
-        // Gets the right child node
-        public BinaryTreeNode<T> RightChild
+        public virtual BinaryTreeNode<T> RightChild
         {
             get
             {
                 return _rightChild;
+            }
+            set
+            {
+                _rightChild = value;
+            }
+        }
+
+        public virtual new BinaryTreeNode<T> Parent
+        {
+            get
+            {
+                return _parent;
+            }
+            set
+            {
+                _parent = value;
             }
         }
     }

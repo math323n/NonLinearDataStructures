@@ -1,71 +1,73 @@
-﻿namespace TreeVariants.Node
+﻿using System;
+
+namespace TreeVariants.Node
 {
-   
-    public class BinarySearchTreeNode : TreeNode<int>
+
+    public class BinarySearchTreeNode<T> : TreeNode<T> where T : IComparable<T>
     {
-      
-        protected BinarySearchTreeNode _leftChild;
-        protected BinarySearchTreeNode _rightChild;
+        protected BinarySearchTreeNode<T> _leftChild;
+        protected BinarySearchTreeNode<T> _rightChild;
 
         public BinarySearchTreeNode()
         {
 
         }
 
-        public BinarySearchTreeNode(int item)
+        public BinarySearchTreeNode(T item)
         {
             _item = item;
         }
 
-        public virtual void Insert(int item)
+        public virtual void Insert(T item)
         {
-            // If item is less than node item
-            if(Item > item)
+            if(Item.CompareTo(item) > 0)
             {
-                // If left child is null
                 if(LeftChild == null)
                 {
-                    // Set a new Left child node with item as property
-                    _leftChild = new BinarySearchTreeNode(item);
+                    _leftChild = new BinarySearchTreeNode<T>(item);
                 }
+
                 else
                 {
-                    // Insert item into left child
                     LeftChild.Insert(item);
                 }
             }
 
-            // If item is greater than item in node
-            else if(Item < item)
+            else if(Item.CompareTo(item) < 0)
             {
-                // If right child is null
                 if(RightChild == null)
                 {
-                    // Set a new Right child< node with item as property
-                    _rightChild = new BinarySearchTreeNode(item);
+                    _rightChild = new BinarySearchTreeNode<T>(item);
                 }
 
                 else
                 {
-                    // Insert item into right child
                     RightChild.Insert(item);
                 }
             }
         }
 
-        public virtual BinarySearchTreeNode LeftChild
+        public virtual BinarySearchTreeNode<T> LeftChild
         {
             get
             {
                 return _leftChild;
             }
+            set
+            {
+                _leftChild = value;
+            }
         }
 
-        public virtual BinarySearchTreeNode RightChild
+        public virtual BinarySearchTreeNode<T> RightChild
         {
             get
             {
                 return _rightChild;
+            }
+            set
+            {
+                _rightChild = value;
             }
         }
     }

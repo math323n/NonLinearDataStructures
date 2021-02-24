@@ -1,24 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TreeVariants.Node;
 using TreeVariants.Tree;
 
 namespace TreeVariants
 {
-    public class BinarySearchTree : IBinarySearchTree<int>
+    public class BinarySearchTree<T> : IBinarySearchTree<T> where T : IComparable<T>
     {
-        protected BinarySearchTreeNode _root;
+        protected BinarySearchTreeNode<T> _root;
 
         public BinarySearchTree()
         {
 
         }
 
-        public BinarySearchTree(BinarySearchTreeNode root)
+        public BinarySearchTree(BinarySearchTreeNode<T> root)
         {
             _root = root;
         }
 
-        public virtual BinarySearchTreeNode Root
+        public virtual BinarySearchTreeNode<T> Root
         {
             get
             {
@@ -34,7 +35,7 @@ namespace TreeVariants
             }
         }
 
-        public virtual int GetCount(BinarySearchTreeNode node, int count)
+        public virtual int GetCount(BinarySearchTreeNode<T> node, int count)
         {
             if(node.LeftChild != null && node.RightChild != null)
             {
@@ -52,16 +53,16 @@ namespace TreeVariants
         }
         public void Print()
         {
-            Root.Print();
+           //
         }
 
-        public virtual void Insert(int item)
+        public virtual void Insert(T item)
         {
             // Check if the root is present or not, if not then it’s the first element.
             if(_root == null)
             {
                 // Then assign the item as Root.
-                _root = new BinarySearchTreeNode(item);
+                _root = new BinarySearchTreeNode<T>(item);
             }
             else
             {
@@ -70,15 +71,15 @@ namespace TreeVariants
             }
         }
 
-        public virtual void InsertMany(List<int> nodes)
+        public virtual void InsertMany(List<T> nodes)
         {
-            foreach(int node in nodes)
+            foreach(T node in nodes)
             {
                 Insert(node);
             }
         }
 
-        public virtual string InOrder(BinarySearchTreeNode node)
+        public virtual string InOrder(BinarySearchTreeNode<T> node)
         {
             string toReturn = "";
             if(node.LeftChild != null)

@@ -21,7 +21,12 @@
             {
                 return _item;
             }
+            set
+            {
+                _item = value;
+            }
         }
+
         public override string ToString()
         {
             return Item.ToString();

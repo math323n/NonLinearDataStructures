@@ -7,7 +7,7 @@ namespace TreeVariants.Node
     {
         class NodeInfo
         {
-            public BinarySearchTreeNode Node;
+            public BinarySearchTreeNode<int> Node;
             public string Text;
             public int StartPos;
             public int Size { get { return Text.Length; } }
@@ -53,7 +53,7 @@ namespace TreeVariants.Node
         //▒░▒▒▒▒▒▒▒▒▒▓▓▓▓▓███▓▓▓▓▓███▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒░░░░░░
         //▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▓▓███▓████▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▓▒▒░░░░░░
         // Fancy stuff below ↓↓
-        public static void Print(this BinarySearchTreeNode root, int topMargin = 2, int leftMargin = 2)
+        public static void Print(this BinarySearchTreeNode<int> root, int topMargin = 2, int leftMargin = 2)
         {
             if(root == null) return;
             int rootTop = Console.CursorTop + topMargin;

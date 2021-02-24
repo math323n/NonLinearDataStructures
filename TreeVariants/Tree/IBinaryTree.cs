@@ -2,7 +2,7 @@
 
 namespace TreeVariants
 {
-    public interface IBinaryTree<T> : INonLinearDataStructure<T>
+    public interface IBinaryTree<T> : INonLinearDataStructure<T> where T : IComparable<T>
     {
         public BinaryTreeNode<T> Root
         {
@@ -19,4 +19,4 @@ namespace TreeVariants
 
         public void AddRightChildTo(BinaryTreeNode<T> parent, T rightChildItem);
     }
-}       
+}

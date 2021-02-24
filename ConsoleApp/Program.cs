@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TreeVariants;
 using TreeVariants.Node;
+using TreeVariants.Tree;
 
 namespace ConsoleApp
 {
@@ -30,7 +31,7 @@ namespace ConsoleApp
             Console.WriteLine(tree.InOrder(root));
 
             // Create new Binary Search Tree
-            BinarySearchTree searchTree = new();
+            BinarySearchTree<int> searchTree = new();
             searchTree.Insert(2);
             searchTree.Insert(1);
             searchTree.Insert(0);
@@ -41,7 +42,37 @@ namespace ConsoleApp
             Console.WriteLine(searchTree.InOrder(searchTree.Root));
             // Print a very fancy tree.
             searchTree.Root.Print();
-    
+
+
+            // Min Heap Tree
+            MinHeapTree<int> minHeap = new(new BinaryTreeNode<int>(5));
+            minHeap.Insert(new BinaryTreeNode<int>(2));
+            minHeap.Insert(new BinaryTreeNode<int>(13));
+            minHeap.Insert(new BinaryTreeNode<int>(28));
+            minHeap.Insert(new BinaryTreeNode<int>(30));
+            minHeap.Insert(new BinaryTreeNode<int>(12));
+            minHeap.Insert(new BinaryTreeNode<int>(14));
+            minHeap.Insert(new BinaryTreeNode<int>(25));
+            minHeap.Insert(new BinaryTreeNode<int>(13));
+            minHeap.Insert(new BinaryTreeNode<int>(12));
+            minHeap.Insert(new BinaryTreeNode<int>(18));
+            minHeap.Insert(new BinaryTreeNode<int>(4));
+
+            MaxHeapTree<int> MaxHeap = new(new BinaryTreeNode<int>(5));
+            MaxHeap.Insert(new BinaryTreeNode<int>(2));
+            MaxHeap.Insert(new BinaryTreeNode<int>(13));
+            MaxHeap.Insert(new BinaryTreeNode<int>(28));
+            MaxHeap.Insert(new BinaryTreeNode<int>(30));
+            MaxHeap.Insert(new BinaryTreeNode<int>(12));
+            MaxHeap.Insert(new BinaryTreeNode<int>(14));
+            MaxHeap.Insert(new BinaryTreeNode<int>(25));
+            MaxHeap.Insert(new BinaryTreeNode<int>(13));
+            MaxHeap.Insert(new BinaryTreeNode<int>(12));
+            MaxHeap.Insert(new BinaryTreeNode<int>(18));
+            MaxHeap.Insert(new BinaryTreeNode<int>(4));
+
+
+
         }
 
     }
