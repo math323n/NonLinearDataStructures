@@ -34,6 +34,13 @@ namespace TreeVariants
             }
         }
 
+
+        public void Print()
+        {
+            //
+        }
+
+
         public virtual int GetCount(BinaryTreeNode<T> node, int count)
         {
             if(node.LeftChild != null && node.RightChild != null)
@@ -123,6 +130,7 @@ namespace TreeVariants
 
             return tree;
         }
+
 
         public virtual string PostOrder(BinaryTreeNode<T> node)
         {

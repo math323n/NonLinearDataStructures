@@ -18,5 +18,6 @@ namespace TreeVariants
         public void AddLeftChildTo(BinaryTreeNode<T> parent, T leftChildItem);
 
         public void AddRightChildTo(BinaryTreeNode<T> parent, T rightChildItem);
+
     }
 }

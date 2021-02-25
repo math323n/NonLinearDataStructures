@@ -10,16 +10,20 @@ namespace ConsoleApp
     {
         static void Main()
         {
-            BinaryTreeNode<string> root = new("root");
-            BinaryTree<string> tree = new(root);
-            tree.AddLeftChildTo(root, "sdas");
-            tree.AddRightChildTo(root, "fds");
-            tree.AddLeftChildTo(root.LeftChild, "fdsfs");
-            tree.AddRightChildTo(root.RightChild, "fhguh");
-            tree.AddRightChildTo(root.RightChild.RightChild, "fdsf");
-            tree.AddRightChildTo(root.RightChild.RightChild, "fds");
+            BinaryTreeNode<int> root = new(1);
+            BinaryTree<int> tree = new(root);
+            tree.AddLeftChildTo(root, 2);
+            tree.AddRightChildTo(root, 3);
+            tree.AddLeftChildTo(root.LeftChild, 532);
+            tree.AddRightChildTo(root.RightChild, 1);
+            tree.AddRightChildTo(root.RightChild.RightChild, 89);
+            tree.AddRightChildTo(root.RightChild.RightChild, 12);
 
             Console.WriteLine(tree.ToStringLevelOrder());
+
+
+         
+
 
             //// Traverse left subtree, traverse right subtree, visit the root.
             Console.WriteLine(tree.PostOrder(root));
@@ -43,6 +47,8 @@ namespace ConsoleApp
             // Print a very fancy tree.
             searchTree.Root.Print();
 
+            tree.Root.Print();
+
 
             // Min Heap Tree
             MinHeapTree<int> minHeap = new(new BinaryTreeNode<int>(5));
@@ -60,23 +66,7 @@ namespace ConsoleApp
 
             MaxHeapTree<int> MaxHeap = new(new BinaryTreeNode<int>(5));
             MaxHeap.Insert(new BinaryTreeNode<int>(2));
-            MaxHeap.Insert(new BinaryTreeNode<int>(13));
-            MaxHeap.Insert(new BinaryTreeNode<int>(28));
-            MaxHeap.Insert(new BinaryTreeNode<int>(30));
-            MaxHeap.Insert(new BinaryTreeNode<int>(12));
-            MaxHeap.Insert(new BinaryTreeNode<int>(14));
-            MaxHeap.Insert(new BinaryTreeNode<int>(25));
-            MaxHeap.Insert(new BinaryTreeNode<int>(13));
-            MaxHeap.Insert(new BinaryTreeNode<int>(12));
-            MaxHeap.Insert(new BinaryTreeNode<int>(18));
-            MaxHeap.Insert(new BinaryTreeNode<int>(4));
 
-
-
-            
-
-            minHeap.Insert(new BinaryTreeNode<int>(5));
-       
 
 
 

@@ -13,6 +13,7 @@ namespace TreeVariants.Node
 
         }
 
+
         public BinarySearchTreeNode(T item)
         {
             _item = item;
